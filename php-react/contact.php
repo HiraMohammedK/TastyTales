@@ -5,23 +5,9 @@ header("Access-Control-Allow-Headers: Content-Type");
 header("Content-Type: application/json");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $email = $_POST["email"];
     $name = $_POST["name"];
-    $password = $_POST["pass"];
-
-    // Validate password
-    if (strlen($password) < 12 ||
-        !preg_match('/[A-Z]/', $password) ||
-        !preg_match('/[a-z]/', $password) ||
-        !preg_match('/[0-9]/', $password) ||
-        !preg_match('/[!@#$%^&*()\-_=+{};:,<.>]/', $password)) {
-        http_response_code(400);
-        echo json_encode(["message" => "Password does not meet requirements."]);
-        exit;
-    }
-
-    // Hash the password
-    $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    $email = $_POST["email"];
+    $message = $_POST["message"];
 
     // Create a new PDO connection to your MySQL database
     $dbHost = "localhost:3306"; // Replace with your database host
@@ -33,20 +19,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Prepare and execute an SQL INSERT query to store the user data
-        $stmt = $pdo->prepare("INSERT INTO users (email, name, password) VALUES (:email, :name, :password)");
-        $stmt->bindParam(":email", $email);
+        // Prepare and execute an SQL INSERT query to store the form data
+        $stmt = $pdo->prepare("INSERT INTO contact_messages (name, email, message) VALUES (:name, :email, :message)");
         $stmt->bindParam(":name", $name);
-        $stmt->bindParam(":password", $hashedPassword);
+        $stmt->bindParam(":email", $email);
+        $stmt->bindParam(":message", $message);
         $stmt->execute();
 
         // Send a response indicating success
-        echo json_encode(["message" => "Registration successful."]);
+        echo json_encode(["message" => "Your message has been submitted successfully."]);
     } catch (PDOException $e) {
         // Log and send an error response
         error_log("Database Error: " . $e->getMessage());
         http_response_code(500);
-        echo json_encode(["message" => "Failed to register. Please try again later."]);
+        echo json_encode(["message" => "Failed to submit the message. Please try again later."]);
     }
 
     // Close the database connection
@@ -56,6 +42,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo json_encode(["message" => "Method not allowed."]);
 }
 ?>
-
-
-
