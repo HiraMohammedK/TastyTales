@@ -1,0 +1,104 @@
+.RecipeUploadPage {
+    background-color: #eea3a3;
+    color: #f7f7f7;
+    padding: 50px 0;
+  }
+  
+  .RecipeUploadPage h1 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .form-control-lg {
+    font-size: 1.1rem;
+  }
+  
+  .form-control:focus {
+    box-shadow: none;
+  }
+  
+  .form-control:disabled,
+  .form-control[readonly] {
+    background-color: #f7f7f7;
+  }
+  
+  .form-control-lg:focus {
+    box-shadow: none;
+  }
+  
+  .form-group {
+    margin-bottom: 30px;
+  }
+  
+  .form-group .form-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .form-group .form-control {
+    border-radius: 0;
+    border: none;
+    background-color: #f7f7f7;
+    color: #333333;
+  }
+  
+  .form-group .form-control:focus {
+    box-shadow: none;
+    background-color: #f7f7f7;
+  }
+  
+  .form-group .form-control:focus + .form-label {
+    color: #f7f7f7;
+  }
+  
+  .form-group .form-control:disabled,
+  .form-group .form-control[readonly] {
+    background-color: #f7f7f7;
+  }
+  
+  .btn-light {
+    background-color: #f7f7f7;
+    border-color: #f7f7f7;
+    color: #333333;
+    border-radius: 0;
+    font-weight: bold;
+    padding: 10px 30px;
+  }
+  
+  .btn-light:hover {
+    background-color: #e8e8e8;
+    border-color: #e8e8e8;
+    color: #e63e3e;
+  }
+  
+  .btn-light:focus,
+  .btn-light.focus {
+    box-shadow: 0 0 0 0.2rem rgba(235, 148, 148, 0.5);
+  }
+  
+  @media (max-width: 767px) {
+    .RecipeUploadPage h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+  
+    .form-control-lg {
+      font-size: 1rem;
+    }
+  
+    .form-group .form-label {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+  
+    .form-group .form-control {
+      padding: 10px;
+    }
+  
+    .btn-light {
+      font-size: 0.9rem;
+      padding: 10px 20px;
+    }
+  }
+  

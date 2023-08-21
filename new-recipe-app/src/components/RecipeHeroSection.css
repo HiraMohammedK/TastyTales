@@ -1,0 +1,66 @@
+/* RecipeHeroSection.module.css (or RecipeHeroSection.css) */
+.hero-container {
+    position: relative;
+    text-align: center;
+    background-color: var(--background-color);
+    padding: 2em;
+}
+
+.hero-container img {
+    width: 100%;
+    max-height: 400px; /* Adjust the height as needed */
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.hero-container h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-top: 1em;
+}
+
+.hero-container p {
+    color: var(--text-light);
+    font-size: 1.2em;
+}
+
+.hero-btns {
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: center;
+}
+
+.btns {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 1em;
+    padding: 0.5em 2em;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btns.btn--outline {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+.btns.btn--outline:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.btns.btn--primary {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.btns.btn--primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
